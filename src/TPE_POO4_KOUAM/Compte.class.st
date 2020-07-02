@@ -8,14 +8,26 @@ Class {
 	#category : #'TPE_POO4_KOUAM'
 }
 
-{ #category : #'as yet unclassified' }
-Compte >> Add: somme [
-	self.montant:= self.montant + somme
+{ #category : #operations }
+Compte >> Depot: somme [
+	self montant: self montant + somme
 ]
 
-{ #category : #'as yet unclassified' }
-Compte >> Solde [
-	^ montant. 
+{ #category : #operations }
+Compte >> Retrait: somme [
+	self montant: ( self montant - somme )
+]
+
+{ #category : #operations }
+Compte >> Transfert: somme A: uncompte [
+	self Retrait: somme.
+	self Depot: somme.
+	uncompte add: somme 
+]
+
+{ #category : #operations }
+Compte >> getSolde [
+	^ self montant. 
 ]
 
 { #category : #accessing }
