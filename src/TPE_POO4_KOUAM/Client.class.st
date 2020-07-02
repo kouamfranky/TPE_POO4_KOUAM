@@ -42,11 +42,13 @@ Client >> SoldeCompte: numCompte [
 
 { #category : #operations }
 Client >> TransfertDeMontant: somme De: numCompteSend A: numCompteRecieve [
-	| sendC recieveC|
-	sendC := (self lesComptes) add: numCompteSend.
-	recieveC  := (self lesComptes) add: numCompteRecieve.
-	sendC Retrait: somme.
-	recieveC Depot: somme.  
+	| sendC recieveC |
+	sendC := self lesComptes add: numCompteSend.
+	recieveC := self lesComptes add: numCompteRecieve.
+	sendC Transfert: somme A: recieveC
+	
+	"sendC Retrait: somme.
+	recieveC Depot: somme"
 ]
 
 { #category : #initialization }
@@ -72,4 +74,14 @@ Client >> nom [
 { #category : #accessing }
 Client >> nom: anObject [
 	nom := anObject
+]
+
+{ #category : #accessing }
+Client >> phone [
+	^ phone
+]
+
+{ #category : #accessing }
+Client >> phone: anObject [
+	phone := anObject
 ]

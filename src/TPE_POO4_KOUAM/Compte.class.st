@@ -21,8 +21,7 @@ Compte >> Retrait: somme [
 { #category : #operations }
 Compte >> Transfert: somme A: uncompte [
 	self Retrait: somme.
-	self Depot: somme.
-	uncompte add: somme 
+	uncompte Depot: somme.
 ]
 
 { #category : #operations }
